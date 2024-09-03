@@ -4,7 +4,7 @@
 A formalization and Typescript API of p2p state channels for Mina Protocol
 
 ## Project Background
-This project will aim at levraging Mina's unique infinite recursive proving capabilities for the development of a peer-to-peer state channel infrastructure. This library will allow developers to build decentralized apps such as multiplayer on-chain games where actors will be able to interact in a zero-trust setup, peer-to-peer and optionally settle disputes using a zkApp smart contract.  
+This project will aim at levraging Mina's unique infinite recursive proving capabilities for the development of a peer-to-peer state channel infrastructure. This library will allow developers to build decentralized apps such as multiplayer on-chain games where actors will be able to interact in a zero-trust setup, peer-to-peer and optionally settle disputes using a zkApp smart contracts.  
 
 This project proposal builds upon a hackathon project in which I developed a dice betting game. The initial version of this game necessitated interactions with a smart contract for every game state transition. However, a significant limitation of this architecture was the unecessary use of the consensus layer of Mina at each intermediate interactions, which introduced substantial delays between each player's actions. An alternative to this architecture would have been to have the players set up a state channel through which they would exchange proofs for each state transition and eventually settling with a smart contract using sending out the proof of winning state.
 
@@ -84,7 +84,7 @@ This section provides details about team.
 
 -  **Proposer Github**: https://github.com/YofiY
 - **Proposer Experience**:
-    - EPFL graduate pursuing a master's degree in Theoretical Computer Science at ETH Zurich.
+    - EPFL graduate pursuing a master's degree in Theoretical Computer Science at ETH Zurich. Previously done research in Graph Machine Learning, now digging Zero-Knowledge big time.
 -  **Team Members**: Yofi
 -  **Achievements**: 
     - won the 2nd place for the Mina track building the ZK Dice Game (https://github.com/YofiY/zk-dice-roll), during Lambda Hack Week in Brussels.
