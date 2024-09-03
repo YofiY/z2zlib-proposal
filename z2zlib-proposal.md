@@ -6,11 +6,9 @@ z2zlib: A Formalization and TypeScript API for P2P State Channels on Mina Protoc
 ## Project Background
 The Mina Protocol offers unique capabilities for zero-knowledge proofs and recursive proving, opening new possibilities for scalable and privacy-preserving decentralized applications. However, the current paradigm of interaction with smart contracts for every state transition introduces unnecessary delays and inefficiencies, particularly in multi-actor applications like games or complex DeFi protocols.
 
-This project, z2zlib, builds upon a hackathon project where we developed a dice betting game. The initial version required interactions with a smart contract for every game state transition, highlighting the limitations of this approach in terms of user experience and efficiency.
+This project, z2zlib, builds upon a hackathon project where I developed a dice betting game. The initial version required interactions with a smart contract for every game state transition, highlighting the limitations of this approach in terms of user experience and efficiency.
 
 z2zlib aims to leverage Mina's infinite recursive proving capabilities to develop a peer-to-peer state channel infrastructure. This library will enable developers to build decentralized applications where actors can interact in a zero-trust setup, peer-to-peer, with optional dispute settlement using zkApp smart contracts.
-
-For more information on the foundational concepts, interested parties can refer to the Mina Protocol documentation: [Mina Protocol Documentation](https://docs.minaprotocol.com/)
 
 ## Proposal Overview
 
@@ -39,9 +37,8 @@ z2zlib will significantly enhance the Mina ecosystem by:
 ### Audience
 The primary audience for z2zlib includes:
 - Mina Protocol developers
-- DApp developers interested in building scalable, privacy-preserving applications
 - Researchers and enthusiasts in the field of zero-knowledge proofs and state channels
-- Companies looking to implement zero-knowledge solutions in their business processes
+- Companies looking to implement zero-knowledge p2p solutions in their business processes
 
 ## Architecture & Design
 
@@ -107,9 +104,13 @@ The connection setup process follows these steps:
 2. Alice sends the invite link to Bob through an out-of-band channel (e.g., email, messaging app).
 3. Bob opens the invite link, triggering the connection process.
 4. Alice and Bob exchange Session Description Proposal (SDP) information through a signaling channel.
-5. Both parties exchange ICE candidates to establish a direct peer-to-peer connection.
+5. Both parties exchange ICE candidates that were selected through an ICE server to establish a direct peer-to-peer connection.
 
-This process is illustrated in the provided "signaling.png" diagram.
+<div align="center">
+<br>
+<img style="align: center" src="./signaling.png" height=256/>
+</div>
+<br>
 
 #### Proof Exchange
 
@@ -121,7 +122,11 @@ Once the connection is established, peers can exchange proofs following this flo
 4. If valid, Bob updates his local state and can then generate the next state transition.
 5. The process repeats for each state change in the application.
 
-This is visualized in the "proof-exchange.png" diagram.
+<div align="center">
+<br>
+<img style="align: center" src="./proof-exchange.png" height=256/>
+</div>
+<br>
 
 #### Peer Discovery and Channel Setup
 
@@ -132,9 +137,9 @@ This is visualized in the "proof-exchange.png" diagram.
 
 2. Channel Setup:
    - Peers agree on initial state and channel parameters.
-   - A smart contract is deployed on-chain to handle potential disputes.
+   - A smart contract is optionally deployed on-chain to handle potential disputes.
    - Both parties lock collateral (if required) in the smart contract.
-   - The channel is now open for off-chain transactions.
+   - The channel is now open for off-chain state-changes.
 
 #### State Management
 
@@ -166,7 +171,7 @@ The long-term vision for z2zlib is to become a cornerstone in scaling zkApps on 
 
 ### Production Timeline
 
-We aim to have a production-ready version of z2zlib within three months from the project's start date. This timeline includes development, testing, documentation, and the creation of example applications.
+I aim to have a production-ready version of z2zlib within three months from the project's start date. This timeline includes development, testing, documentation, and the creation of example applications.
 
 ## Budget & Milestones
 
@@ -271,4 +276,5 @@ Yofi (sole developer for this project)
 6. Continuous Monitoring: Implement logging and monitoring systems to detect and respond to potential issues in real-time during the initial deployment phases.
 
 By addressing these risks and implementing strong mitigation strategies, we aim to create a robust and reliable state channel infrastructure for the Mina ecosystem.
+
 
