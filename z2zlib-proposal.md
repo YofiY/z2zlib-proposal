@@ -1,7 +1,7 @@
 # Navigators Season 2: Growth Grants Proposal
 
-## Title
-z2zlib: A Formalization and TypeScript API for P2P State Channels on Mina Protocol
+## Z2Zlib
+A Formalization and TypeScript API for P2P State Channels on Mina Protocol
 
 ## Project Background
 This project will aim at levraging Mina's unique infinite recursive proving capabilities for the development of a peer-to-peer state channel infrastructure. This library will allow developers to build decentralized apps such as multiplayer on-chain games where actors will be able to interact in a zero-trust setup, peer-to-peer and optionally settle disputes using a zkApp smart contracts.  
