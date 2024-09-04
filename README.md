@@ -232,7 +232,7 @@ Yofi (sole developer for this project)
 
 1. Proof Generation Time:
    - Risk: Complex state transitions may require significant time to generate proofs, impacting user experience.
-   - Mitigation: Optimize proof generation algorithms and implement parallel processing where possible. Consider using simplified state representations for frequent updates.
+   - Mitigation: ...
 
 2. Network Reliability:
    - Risk: P2P connections may be unstable, leading to interrupted sessions.
@@ -246,11 +246,11 @@ Yofi (sole developer for this project)
 
 2. Data Availability:
    - Risk: Loss of local data (e.g., due to hardware failure) may result in loss of funds or application state.
-   - Mitigation: Implement periodic state backups and allow for state reconstruction from on-chain information and counterparty data.
+   - Mitigation: ...
 
 3. Griefing Attacks:
    - Risk: Malicious actors may force frequent on-chain settlements to increase costs for honest participants.
-   - Mitigation: Implement reputation systems and economic disincentives for unnecessary on-chain settlements. Design the dispute resolution mechanism to penalize clearly malicious behavior.
+   - Mitigation: ...
 
 ### Mitigation Strategies
 
