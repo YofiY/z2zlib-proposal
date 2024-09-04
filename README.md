@@ -47,8 +47,7 @@ z2zlib is designed as a modular, layered system comprising several key component
 1. Network Stack (powered by libp2pjs)
 2. State Channel Management
 3. Zero-Knowledge Proof Generation and Verification of state transitions
-4. Typescript types encompassing the state channel specifications
-5. Dispute settlement Smart Contracts abstractions.
+4. Dispute settlement Smart Contracts abstractions.
 
 
 #### 1. Network Stack
