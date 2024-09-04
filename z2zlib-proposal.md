@@ -118,6 +118,7 @@ Once the connection is established, peers can exchange proofs following this flo
 <img style="align: center" src="./proof-exchange.png" height=256/>
 </div>
 <br>
+
 #### Peer Discovery and Channel Setup
 
 1. Peer Discovery:
