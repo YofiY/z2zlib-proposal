@@ -4,11 +4,9 @@
 z2zlib: A Formalization and TypeScript API for P2P State Channels on Mina Protocol
 
 ## Project Background
-The Mina Protocol offers unique capabilities for zero-knowledge proofs and recursive proving, opening new possibilities for scalable and privacy-preserving decentralized applications. However, the current paradigm of interaction with smart contracts for every state transition introduces unnecessary delays and inefficiencies, particularly in multi-actor applications like games or complex DeFi protocols.
+This project will aim at levraging Mina's unique infinite recursive proving capabilities for the development of a peer-to-peer state channel infrastructure. This library will allow developers to build decentralized apps such as multiplayer on-chain games where actors will be able to interact in a zero-trust setup, peer-to-peer and optionally settle disputes using a zkApp smart contracts.  
 
-This project, z2zlib, builds upon a hackathon project where I developed a dice betting game. The initial version required interactions with a smart contract for every game state transition, highlighting the limitations of this approach in terms of user experience and efficiency.
-
-z2zlib aims to leverage Mina's infinite recursive proving capabilities to develop a peer-to-peer state channel infrastructure. This library will enable developers to build decentralized applications where actors can interact in a zero-trust setup, peer-to-peer, with optional dispute settlement using zkApp smart contracts.
+This project proposal builds upon a hackathon project in which I developed a dice betting game. The initial version of this game necessitated interactions with a smart contract for every game state transition. However, a significant limitation of this architecture was the unecessary use of the consensus layer of Mina at each intermediate interactions, which introduced substantial delays between each player's actions. An alternative to this architecture would have been to have the players set up a state channel through which they would exchange proofs for each state transition and eventually settling with a smart contract using sending out the proof of winning state.
 
 ## Proposal Overview
 
@@ -37,7 +35,7 @@ z2zlib will significantly enhance the Mina ecosystem by:
 ### Audience
 The primary audience for z2zlib includes:
 - Mina Protocol developers
-- Researchers and enthusiasts in the field of zero-knowledge proofs and state channels
+- Researchers in the field of zero-knowledge proofs and state channels
 - Companies looking to implement zero-knowledge p2p solutions in their business processes
 
 ## Architecture & Design
@@ -46,11 +44,12 @@ The primary audience for z2zlib includes:
 
 z2zlib is designed as a modular, layered system comprising several key components:
 
-1. Network Stack (powered by libp2p.js)
+1. Network Stack (powered by libp2pjs)
 2. State Channel Management
-3. Zero-Knowledge Proof Generation and Verification
-4. Smart Contract Interface
-5. Application Layer
+3. Zero-Knowledge Proof Generation and Verification of state transitions
+4. Typescript types encompassing the state channel specifications
+5. Dispute settlement Smart Contracts abstractions.
+
 
 #### 1. Network Stack
 
@@ -58,9 +57,7 @@ The network stack, built on libp2p.js, handles peer discovery, connection establ
 
 a) Connection Setup:
 - Utilizes a hole-punching protocol for NAT traversal
-- Supports two modes of operation:
-  1. Decentralized: Uses a network of incentivized relay nodes
-  2. Centralized: Employs an ICE (Interactive Connectivity Establishment) server
+- Operates through a Centralized: Employs an ICE (Interactive Connectivity Establishment) server first, in the future a developments a network of incentivized users may act as relays.
 
 b) Proof Exchange:
 - Implements WebRTC as the transport layer for efficient, peer-to-peer communication
@@ -71,6 +68,7 @@ b) Proof Exchange:
 This component is responsible for:
 - Initializing and closing state channels
 - Managing state transitions within the channel
+- Channel monitoring
 - Handling disputes and channel settlement
 
 #### 3. Zero-Knowledge Proof Generation and Verification
@@ -86,13 +84,6 @@ This layer provides an abstraction for interacting with on-chain smart contracts
 - Channel opening and closing
 - Dispute resolution
 - Final state settlement
-
-#### 5. Application Layer
-
-The topmost layer where developers can build their applications using z2zlib. It provides:
-- High-level APIs for common operations
-- Customizable state machines for application-specific logic
-- Event handlers for various channel and state-related events
 
 ### Detailed Design
 
@@ -273,7 +264,3 @@ Yofi (sole developer for this project)
 5. Community Audits: Engage the Mina developer community in reviewing and auditing the codebase before major releases.
 
 6. Continuous Monitoring: Implement logging and monitoring systems to detect and respond to potential issues in real-time during the initial deployment phases.
-
-By addressing these risks and implementing strong mitigation strategies, we aim to create a robust and reliable state channel infrastructure for the Mina ecosystem.
-
-
