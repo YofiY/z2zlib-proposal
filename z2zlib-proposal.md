@@ -1,6 +1,6 @@
 # Navigators Season 2: Growth Grants Proposal
 
-## Z2Zlib
+## z2zlib
 A Formalization and TypeScript API for P2P State Channels on Mina Protocol
 
 ## Project Background
